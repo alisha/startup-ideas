@@ -15,7 +15,7 @@ pages.each do |link|
 
   # strip HTML tags
   words.each do |word|
-    f.puts((word.text.sub(/<\/?strong>/, '')).pluralize)
+    f.puts((word.text.sub(/<\/?strong>/, '')))
   end
 end
 
