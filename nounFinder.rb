@@ -5,7 +5,8 @@ pages = ['https://www.englishclub.com/vocabulary/nouns-uncountable-list-ab.htm',
 
 ## get list of words
 mechanize = Mechanize.new
-$nouns = []
+
+f = File.open("words.txt", "w")
 
 pages.each do |link|
   page = mechanize.get(link)
@@ -14,6 +15,8 @@ pages.each do |link|
 
   # strip HTML tags
   words.each do |word|
-    $nouns.push((word.text.sub(/<\/?strong>/, '')).pluralize)
+    f.puts((word.text.sub(/<\/?strong>/, '')).pluralize)
   end
 end
+
+f.close
