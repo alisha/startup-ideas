@@ -12,12 +12,28 @@ end
 
 ## retrieve nouns from words.txt
 nouns = []
-f = File.open("words.txt", "r")
+f = File.open(Dir.pwd + "/words.txt", "r")
 f.readlines.each do |word|
   nouns.push(word)
 end
 f.close
 
+## retreive Twitter API info
+f = File.open(Dir.pwd + "/secret.txt", "r")
+c_key = f.readline.strip
+c_secret = f.readline.strip
+a_token = f.readline.strip
+a_token_secret = f.readline.strip
+f.close
+
 ## tweet
 tweet = startups.sample + " for " + nouns.sample
-puts tweet
+
+client = Twitter::REST::Client.new do |config|
+  config.consumer_key        = c_key
+  config.consumer_secret     = c_secret
+  config.access_token        = a_token
+  config.access_token_secret = a_token_secret
+end
+
+client.update(tweet)
