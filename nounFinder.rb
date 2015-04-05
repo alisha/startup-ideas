@@ -6,7 +6,7 @@ pages = ['https://www.englishclub.com/vocabulary/nouns-uncountable-list-ab.htm',
 ## get list of words
 mechanize = Mechanize.new
 
-f = File.open(Dir.pwd + "/words.txt", "w")
+f = File.open(File.dirname(__FILE__) + "/words.txt", "w")
 
 pages.each do |link|
   page = mechanize.get(link)

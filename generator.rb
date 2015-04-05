@@ -12,14 +12,14 @@ end
 
 ## retrieve nouns from words.txt
 nouns = []
-f = File.open(Dir.pwd + "/words.txt", "r")
+f = File.open(File.dirname(__FILE__) + "/words.txt", "r")
 f.readlines.each do |word|
   nouns.push(word)
 end
 f.close
 
 ## retreive Twitter API info
-f = File.open(Dir.pwd + "/secret.txt", "r")
+f = File.open(File.dirname(__FILE__) + "/secret.txt", "r")
 c_key = f.readline.strip
 c_secret = f.readline.strip
 a_token = f.readline.strip
