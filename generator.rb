@@ -1,4 +1,5 @@
 require 'mechanize'
+require 'twitter'
 
 startups = []
 
@@ -19,4 +20,4 @@ f.close
 
 ## tweet
 tweet = startups.sample + " for " + nouns.sample
-
+puts tweet
