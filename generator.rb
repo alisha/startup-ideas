@@ -19,7 +19,7 @@ end
 f.close
 
 ## retreive Twitter API info
-f = File.open(File.dirname(__FILE__) + "/secret.txt", "r")
+f = File.open(File.dirname(__FILE__) + "secret.txt", "r")
 c_key = f.readline.strip
 c_secret = f.readline.strip
 a_token = f.readline.strip
